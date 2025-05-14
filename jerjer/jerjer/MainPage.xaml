@@ -1,0 +1,53 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="jerjer.MainPage"
+             BackgroundColor="#E0E0E0"
+             Title="Customer Support">
+
+    <Grid RowDefinitions="Auto,*,Auto">
+        <!-- Header -->
+        <Grid Padding="10" ColumnDefinitions="Auto,*,Auto" BackgroundColor="White">
+            <Image Source="back_arrow.png"
+                   HeightRequest="24"
+                   WidthRequest="24"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Start"
+                   Margin="0,0,10,0">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnBackTapped" />
+                </Image.GestureRecognizers>
+            </Image>
+
+            <StackLayout Orientation="Horizontal" Grid.Column="1" Spacing="10">
+                <Frame HeightRequest="40"
+                       WidthRequest="40"
+                       Padding="0"
+                       CornerRadius="20"
+                       IsClippedToBounds="True"
+                       HasShadow="False"
+                       BackgroundColor="Transparent">
+                    <Image Source="profile.jpg" Aspect="AspectFill"/>
+                </Frame>
+                <StackLayout>
+                    <Label Text="Joanna Codilla" TextColor="#3366FF" FontAttributes="Bold"/>
+                    <Label Text="● Online" TextColor="Green" FontSize="12"/>
+                </StackLayout>
+            </StackLayout>
+        </Grid>
+
+        <!-- Chat Content -->
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout x:Name="ChatLayout" Padding="15" Spacing="15">
+                <!-- Static Initial Content (optional) -->
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- Message Input -->
+        <Grid Grid.Row="2" Padding="10" BackgroundColor="White" ColumnDefinitions="*,Auto,Auto,Auto" VerticalOptions="End">
+            <Entry x:Name="MessageEntry" Placeholder="Write your message" Grid.Column="0" Margin="10,0"/>
+            <ImageButton Source="mic_icon.png" HeightRequest="24" WidthRequest="24" Grid.Column="1" Margin="5,0"/>
+            <ImageButton Source="voice_icon.png" HeightRequest="24" WidthRequest="24" Grid.Column="2" Margin="5,0"/>
+            <ImageButton Source="send_icon.png" HeightRequest="24" WidthRequest="24" Grid.Column="3" Margin="5,0" Clicked="OnSendClicked"/>
+        </Grid>
+    </Grid>
+</ContentPage>
